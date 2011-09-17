@@ -1,0 +1,46 @@
+
+   This is little Qt (but it is console program) tool for creating data files
+   in format recognized by the module. It also makes it possible to control
+   the device directly (if the module is loaded).
+
+   It takes name of the graphic file (in one of the formats supported by
+   Qt 3.3 library) and either produces text file, that can be written
+   to /sys interface of the module (if output file is given with -o parameter),
+   or it send the data directly to the /sys interface, if no output file
+   is given.
+
+   It is drop-in replacement for 'asusoled' - it accepts the same commands
+   and much more:
+   - Static, Rolling and Flashing pictures are supported.
+   - Aditional 'Flashing/Rolling' mode is possible - in this mode, upper
+      half of the picture will be flashing, and lower will be rolled.
+   - Graphic files don't need to be correct size, they will be resized,
+     either automatically, or to the given size. It will try to preserve
+     the ratio of the picture if it is possible.
+   - It is possible to specify both enable/disable and send a picture
+     with one command.
+   - Some basic image processing options:
+     * Inversion of pixel values black <-> white
+     * 'BlackBackground' method - when there is a lot of white color
+       around the main element of the picture, but black elements should
+       stay black (for example tux logo), this method changes all white
+       pixels in the background to black, leaving only 1 pixel from sides
+       of the element.
+
+
+*******
+
+   To compile the program, just run:
+   qmake && make in the tool/ directory
+
+   You need to have qt-3.3 library, although the program works in console mode.
+
+
+*******
+
+   For any additional info please have a look at http://lapsus.berlios.de/asus_oled.html
+
+
+
+   Jakub Schmidtke (sjakub@users.berlios.de)
+
